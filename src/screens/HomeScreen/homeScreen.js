@@ -7,7 +7,7 @@ export const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <Image style={styles.unitImage} source={require('../../assets/proUnit.png')} resizeMode='contain'  />
-            <TouchableOpacity style={styles.touch} onPress={() => {}}>
+            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.textButton}>Colaborador</Text>
             </TouchableOpacity>
         </View>

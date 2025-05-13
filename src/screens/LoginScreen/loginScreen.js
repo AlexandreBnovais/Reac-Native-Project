@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { View, TextInput, Image, Text} from 'react-native';
-
+import { View, TextInput, Image, TouchableOpacity, Text} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { styles } from './style';
 
 export const LoginScreen = () => {
@@ -9,21 +8,32 @@ export const LoginScreen = () => {
     const [isPassword, setPassword] = useState('');
     
     return (
-        <View>
-            <Image source={require('../../assets/proUnit.png')}/>
-            <TextInput 
-                placeholder='Email'
-                style={styles.textInput}
-                onChangeText={(texto) => setName(texto)}
-            />
+        <LinearGradient 
+            colors={['#34474B','#83BECC','#B2EDFA']}
+            style={styles.container}
+            start={{x: 1, y: 3}}
+            end={{x: 0, y: 0}}
+        >
+            <View style={styles.FormContain}>
+                <Image source={require('../../assets/proUnit.png')} resizeMode='contain' style={styles.unitIcon}/>
+                <TextInput 
+                    placeholder='Email'
+                    style={styles.textInput}
+                    onChangeText={(texto) => setName(texto)}
+                />
 
-            <TextInput 
-                placeholder='Senha'
-                style={styles.textInput}
-                onChangeText={(texto) => setPassword(texto)}
-                keyboardType='numeric'
-                secureTextEntry
-            />
-        </View>
+                <TextInput 
+                    placeholder='Senha'
+                    style={styles.textInput}
+                    onChangeText={(texto) => setPassword(texto)}
+                    keyboardType='numeric'
+                    secureTextEntry
+                />
+
+                <TouchableOpacity style={styles.button} onPress={() => {}}>
+                    <Text style={styles.textButton }>Entrar</Text>
+                </TouchableOpacity>
+            </View>
+        </LinearGradient>
   )
 }
