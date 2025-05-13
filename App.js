@@ -5,23 +5,31 @@ import {
   useFonts } from '@expo-google-fonts/roboto';
 import * as SplashScreen from 'expo-splash-screen';
 import {useEffect} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import { HomeScreen } from './src/components/HomeScreen/homeScreen';
-import {View, Text} from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Layout } from './src/layout/layout';
 
-export default function App() {
+SplashScreen.preventAutoHideAsync();
 
-  const Stack = createNativeStackNavigator();
+export default function App() {  
+  const [loaded, error] = useFonts({
+    Roboto_400Regular,
+    Roboto_600SemiBold,
+    Roboto_700Bold,
+  });
 
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
+  
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
-          <Stack.Screen name='Home' component={HomeScreen}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Layout />
     </SafeAreaProvider>
   )
 }
