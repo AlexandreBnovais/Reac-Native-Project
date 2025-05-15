@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import { View, TextInput, Image, TouchableOpacity, Text} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 import { styles } from './style';
+
 
 export const LoginScreen = () => {
     const [isName, setName] = useState('');
@@ -11,8 +13,8 @@ export const LoginScreen = () => {
         <LinearGradient 
             colors={['#34474B','#83BECC','#B2EDFA']}
             style={styles.container}
-            start={{x: 1, y: 3}}
-            end={{x: 0, y: 0}}
+            start={{x: 0, y: 1}}
+            end={{x: 1, y: 0}}
         >
             <View style={styles.FormContain}>
                 <Image source={require('../../assets/proUnit.png')} resizeMode='contain' style={styles.unitIcon}/>
@@ -34,6 +36,10 @@ export const LoginScreen = () => {
                     <Text style={styles.textButton }>Entrar</Text>
                 </TouchableOpacity>
             </View>
+
+            <TouchableOpacity style={styles.signUpButton}>
+                <Text style={styles.singUpText}>Cadastre-se</Text>
+            </TouchableOpacity>
         </LinearGradient>
   )
 }

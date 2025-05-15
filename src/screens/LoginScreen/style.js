@@ -12,17 +12,43 @@ export const styles = StyleSheet.create({
         width: 355,
         height: 'auto',
         padding: 20,
-        borderWidth: 2
+        borderRadius: 30,   
+        backgroundColor: '#FFFFFF'
     },
     unitIcon: {
         width: 300,
         height: 150
     },
     textInput: {
-        borderWidth: 2,
+        backgroundColor: '#D9D9D9',
+        borderRadius: 30,
         marginBottom: 20,
         width: 300,
         height: 62,
         paddingHorizontal: 10
+    },
+    button: {
+        backgroundColor: '#F7FF16',
+        padding: 20,
+        marginVertical: 20,
+        borderRadius: 30
+    },
+    textButton: {
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 600
+    },
+    signUpButton: {
+        backgroundColor: '#00000',
+        width: 355,
+        padding: 20,
+        marginTop: 50,
+        borderRadius: 30
+    },
+    singUpText: {
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 600,
+        color: '#FFFFFF'
     }
 })
