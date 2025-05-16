@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
+import { styles } from './style';
+
 export const singUpScreen = () => {
     const [user , setUse] = useState();
     const [nome , setNome] = useState();
@@ -10,31 +12,43 @@ export const singUpScreen = () => {
 
     return(
         <LinearGradient
-            colors={["##E3B2FA" , "#B983CC" , "##44344B"]}
+            colors={["#E3B2FA" , "#B983CC" , "#44344B"]}
             style={styles.container}
             start={{x: 1, y: 0}}
             end={{x: 0, y: 1}}
         >
-            <View>
+            <View style={styles.formContainer}>
                 <Image style={styles.UniIcon} source={require('../../assets/proUnit.png')} resizeMode='contain'/>
 
                 <TextInput 
+                    placeholder='Usuario'
                     onChangeText={(texto) => setUse(texto)}
-                    value='user'
+                    value={user}
+                    keyboardType='default'
                     style={styles.textInput}
                 /> 
                 <TextInput 
-                    onChangeText={(text) => setNa}
-                />
+                    placeholder='Nome Completo'
+                    onChangeText={(texto) => setNome(texto)}
+                    value={nome}
+                    keyboardType='default'
+                    style={styles.textInput}
+                /> 
                 <TextInput 
-                    onChangeText={(text) => }
-                />
+                    placeholder='Email'
+                    onChangeText={(texto) => setEmail(texto)}
+                    value={email}
+                    keyboardType='email-address'
+                    style={styles.textInput}
+                /> 
                 <TextInput 
-                    onChangeText={(text) => }
-                />
-                <TextInput 
-                    onChangeText={(text) => }
-                />
+                    placeholder='Senha'
+                    onChangeText={(texto) => setSenha(texto)}
+                    value={senha}
+                    keyboardType='numeric'
+                    secureTextEntry
+                    style={styles.textInput}
+                /> 
             </View>
         </LinearGradient>
     );

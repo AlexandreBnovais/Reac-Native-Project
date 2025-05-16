@@ -4,8 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './style';
 
-
 export const LoginScreen = () => {
+    const navigation = useNavigation();
     const [isName, setName] = useState('');
     const [isPassword, setPassword] = useState('');
     
@@ -21,6 +21,7 @@ export const LoginScreen = () => {
                 <TextInput 
                     placeholder='Email'
                     style={styles.textInput}
+                    value={setName}
                     onChangeText={(texto) => setName(texto)}
                 />
 
@@ -28,6 +29,7 @@ export const LoginScreen = () => {
                     placeholder='Senha'
                     style={styles.textInput}
                     onChangeText={(texto) => setPassword(texto)}
+                    value={setPassword}
                     keyboardType='numeric'
                     secureTextEntry
                 />
@@ -37,7 +39,7 @@ export const LoginScreen = () => {
                 </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.signUpButton}>
+            <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.navigate('singUp')}>
                 <Text style={styles.singUpText}>Cadastre-se</Text>
             </TouchableOpacity>
         </LinearGradient>
