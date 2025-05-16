@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         width: 300,
         height: 62,
-        paddingHorizontal: 10
+        paddingHorizontal: 20
     },
     button: {
         backgroundColor: '#F7FF16',
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
         fontWeight: 600
     },
     signUpButton: {
-        backgroundColor: '#00000',
+        backgroundColor: '#000',
         width: 355,
         padding: 20,
         marginTop: 50,
