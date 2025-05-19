@@ -6,12 +6,19 @@ export const styles = StyleSheet.create({
         flex: 1,
         width: 'auto',
         height: 200,
-        margin: 20,
+        marginVertical: 20,
         borderRadius: 20
     },
     imageBackground: {
         flex: 1,
-        padding: 10
+        justifyContent: 'flex-end',
+        padding: 20
 
+    },
+    overlay: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     }
 })
