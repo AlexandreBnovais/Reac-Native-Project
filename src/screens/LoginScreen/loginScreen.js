@@ -21,7 +21,7 @@ export const LoginScreen = () => {
                 <TextInput 
                     placeholder='Email'
                     style={styles.textInput}
-                    value={setName}
+                    value={isName}
                     onChangeText={(texto) => setName(texto)}
                 />
 
@@ -29,12 +29,12 @@ export const LoginScreen = () => {
                     placeholder='Senha'
                     style={styles.textInput}
                     onChangeText={(texto) => setPassword(texto)}
-                    value={setPassword}
+                    value={isPassword}
                     keyboardType='numeric'
                     secureTextEntry
                 />
 
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TimeScreen')}>
                     <Text style={styles.textButton }>Entrar</Text>
                 </TouchableOpacity>
             </View>

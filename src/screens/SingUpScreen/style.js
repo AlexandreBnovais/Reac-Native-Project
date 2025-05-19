@@ -25,5 +25,16 @@ export const styles = StyleSheet.create({
         height: 62,
         paddingHorizontal: 20,
         fontWeight: 600
-    }
+    },
+    button: {
+        backgroundColor: '#F7FF16',
+        padding: 20,
+        marginTop: 30,
+        borderRadius: 30
+    },
+    textButton: {
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 600
+    },
 })

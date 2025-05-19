@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image, View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { styles } from './style';
 
@@ -9,6 +10,8 @@ export const singUpScreen = () => {
     const [nome , setNome] = useState();
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
+
+    const navigation = useNavigation();
 
     return(
         <LinearGradient
@@ -49,6 +52,10 @@ export const singUpScreen = () => {
                     secureTextEntry
                     style={styles.textInput}
                 /> 
+
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.textButton}>Cadastre-se</Text>
+                </TouchableOpacity>
             </View>
         </LinearGradient>
     );
