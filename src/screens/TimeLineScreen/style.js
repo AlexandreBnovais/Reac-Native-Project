@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
         marginVertical: 20,
         borderRadius: 20
     },
+    tagCard: {
+        padding: 10,
+        borderWidth: 2,
+        width: 100,
+        display: 'flex'
+    },
     imageBackground: {
         flex: 1,
         justifyContent: 'flex-end',

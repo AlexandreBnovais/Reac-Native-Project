@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { 
     View, 
     Text,
@@ -9,67 +9,73 @@ import {
     StyleSheet
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { styles } from './style';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { FiltroItem } from '../../components/filtroItem';
+import { CardItem } from '../../components/cardItem';
 
+export const TimeScreen = () => {    
+    const [vagas, setVagas] = useState([]);
+    const [filtro, setFiltro] = useState(['Popular', 'Local', 'Novo', 'Escolar']);
+    const [filtroSelecionado, setFiltroSelecionado] = useState(null);
+    const [vagasFiltradas, setVagasFiltradas] = useState([]);
 
-const Data = [
-    {id: '1', title: 'Recicla ZS', local: '(Zona sul de SP)', image: require('../../assets/reciclazs.png')},
-    {id: '2', title: 'Recicla ZS', local: '(Zona sul de SP)', image: require('../../assets/cine.png')},
-    {id: '3', title: 'Recicla ZS', local: '(Zona sul de SP)', image: require('../../assets/capoeira.png')},
-    {id: '4', title: 'Recicla ZS', local: '(Zona sul de SP)', image: require('../../assets/horta.png')},
-    {id: '5', title: 'Recicla ZS', local: '(Zona sul de SP)', image: require('../../assets/refloresta.png')},
-    {id: '6', title: 'Recicla ZS', local: '(Zona sul de SP)', image: require('../../assets/feira.png')},
-    {id: '7', title: 'Recicla ZS', local: '(Zona sul de SP)'},
-]
+    useEffect(() => {
+        const Data = [
+            {id: '1', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Popular',image: require('../../assets/reciclazs.png')},
+            {id: '2', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Popular',image: require('../../assets/cine.png')},
+            {id: '3', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Local',image: require('../../assets/capoeira.png')},
+            {id: '4', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Novo',image: require('../../assets/horta.png')},
+            {id: '5', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Novo',image: require('../../assets/refloresta.png')},
+            {id: '6', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Escolar',image: require('../../assets/feira.png')},
+            {id: '7', title: 'Recicla ZS', local: '(Zona sul de SP)'},
+        ];
+        setVagas(Data);
+        setVagasFiltradas(Data);
+    },[]);
 
-const tags = [
-    {id: '1', tag: 'Popular' },
-    {id: '2', tag: 'Local' },
-    {id: '3', tag: 'Novo' },
-    {id: '4', tag: 'Escolar' },
-    {id: '5', tag: ' ' },
+    useEffect(() => {
+        if(filtroSelecionado) {
+            const NovaVagaFiltrada = vagas.filter(vaga => 
+                vaga.area === filtroSelecionado
+            );
+            setVagasFiltradas(NovaVagaFiltrada);
+        }else {
+            setVagasFiltradas(vagas)
+        }
+    }, [filtroSelecionado, vagas]);
 
-]
+    const handFiltroClick = (filtro) => {
+        setFiltroSelecionado(filtro === filtroSelecionado ? null : filtro);
+    }
 
-export const TimeScreen = () => {
-    const tagItems = ({ item }) => (
-        <TouchableOpacity style={styles.tagCard} onPress={() => {}}>
-            <Text>{item.tag}</Text>
-        </TouchableOpacity>
-    )
+    const renderFiltroItem = ({item}) => (
+        <FiltroItem 
+        filtro={item}
+        selecionado={item === filtroSelecionado}
+        onPress={() => handFiltroClick(item)}
+        />
+    );
 
-    const renderItems = ({ item }) => (
-        <TouchableOpacity style={styles.card} onPress={() => {}}>
-            <ImageBackground style={styles.imageBackground} source={item.image} resizeMode='cover'borderRadius={20} >
-                <View>
-                    <Text>{item.title}</Text>
-                    <Text>{item.local}</Text>
-                </View>
-            </ImageBackground>
-        </TouchableOpacity>
-    )
+    const renderCardItem = ({ item }) => (
+        <CardItem  vaga={item}/>
+    );
+
     return (
         <SafeAreaView>
-            <View style={{marginHorizontal: 20, }}>
-                <View style={styles.overlay}>
-                    <Image style={{width: 100, height: 100}} source={require('../../assets/proUnit.png')} resizeMode='contain'/>
-                    <MaterialCommunityIcons name="email-outline" size={24} color="black" />
-                </View>
+            <View>
                 <FlatList 
-                    data={tags}
-                    renderItem={tagItems}
-                    keyExtractor={(item) => item.id}
-                />
-
-                <FlatList        
-                    data={Data}
-                    showsVerticalScrollIndicator={false}
-                    keyExtractor={(item) => item.id}
-                    renderItem={renderItems}
-                    contentContainerStyle={{ padding: 10}}
+                    data={filtro} 
+                    renderItem={renderFiltroItem}
+                    keyExtractor={(item) => item}
+                    showsHorizontalScrollIndicator={false}
                 />
             </View>
+
+            <FlatList 
+                data={vagasFiltradas}
+                renderItem={renderCardItem}
+                keyExtractor={(item) => item.id}
+                showsVerticalScrollIndicator={false}
+            />
         </SafeAreaView>
     )
 }
