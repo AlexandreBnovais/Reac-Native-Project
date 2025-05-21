@@ -14,20 +14,19 @@ export const FiltroItem = ({ filtro, selecionado, onPress}) => {
 
 const styles = StyleSheet.create({
     filtroItem: {
-    backgroundColor: '#e0e0e0',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+    backgroundColor: '#000000B2',
     borderRadius: 20,
-    marginRight: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    margin: 5
+    
   },
   filtroSelecionado: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#000000',
   },
   filtroTexto: {
     fontSize: 14,
-    color: '#333',
   },
   filtroTextoSelecionado: {
-    color: '#fff',
   }
 })

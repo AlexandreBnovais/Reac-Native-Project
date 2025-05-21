@@ -50,8 +50,8 @@ export const TimeScreen = () => {
     const renderFiltroItem = ({item}) => (
         <FiltroItem 
         filtro={item}
-        selecionado={item === filtroSelecionado}
-        onPress={() => handFiltroClick(item)}
+            selecionado={item === filtroSelecionado}
+            onPress={() => handFiltroClick(item)}
         />
     );
 
@@ -66,6 +66,7 @@ export const TimeScreen = () => {
                     data={filtro} 
                     renderItem={renderFiltroItem}
                     keyExtractor={(item) => item}
+                    horizontal={true}
                     showsHorizontalScrollIndicator={false}
                 />
             </View>
