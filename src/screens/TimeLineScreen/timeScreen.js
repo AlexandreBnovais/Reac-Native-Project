@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { 
     View, 
-    Text,
-    TouchableOpacity,
-    ImageBackground,
-    Image,
     FlatList,
+    Image,
     StyleSheet
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Feather from '@expo/vector-icons/Feather';
 import { FiltroItem } from '../../components/filtroItem';
 import { CardItem } from '../../components/cardItem';
 
@@ -26,7 +24,7 @@ export const TimeScreen = () => {
             {id: '4', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Novo',image: require('../../assets/horta.png')},
             {id: '5', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Novo',image: require('../../assets/refloresta.png')},
             {id: '6', title: 'Recicla ZS', local: '(Zona sul de SP)', area: 'Escolar',image: require('../../assets/feira.png')},
-            {id: '7', title: 'Recicla ZS', local: '(Zona sul de SP)'},
+            
         ];
         setVagas(Data);
         setVagasFiltradas(Data);
@@ -61,6 +59,15 @@ export const TimeScreen = () => {
 
     return (
         <SafeAreaView>
+           <View>
+                <Image 
+                    style={styles.imageContainer}
+                    source={require('../../assets/proUnit.png')} 
+                    resizeMode='cover'
+                />
+
+                <
+           </View>
             <View>
                 <FlatList 
                     data={filtro} 
@@ -77,7 +84,15 @@ export const TimeScreen = () => {
                 keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}
             />
+            
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    imageContainer: {
+        width: 100,
+        height: 100,
+    },
+})
 

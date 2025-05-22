@@ -7,26 +7,28 @@ export const FiltroItem = ({ filtro, selecionado, onPress}) => {
         style={[styles.filtroItem, selecionado && styles.filtroSelecionado]}
         onPress={onPress}
     >
-        <Text style={[styles.filtroItem, selecionado && styles.filtroTextoSelecionado]}>{filtro}</Text>
+        <Text style={[styles.filtroText, selecionado && styles.filtroTextoSelecionado]}>{filtro}</Text>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-    filtroItem: {
+  filtroItem: {
     backgroundColor: '#000000B2',
+    paddingVertical: 8,
+    paddingHorizontal: 20,
     borderRadius: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 2,
-    margin: 5
+    margin: 10
     
   },
   filtroSelecionado: {
-    backgroundColor: '#000000',
+    backgroundColor: '#575757'
   },
-  filtroTexto: {
-    fontSize: 14,
+  filtroText: {
+    fontSize: 16,
+    color: '#FFFFFF'
   },
   filtroTextoSelecionado: {
+
   }
 })
