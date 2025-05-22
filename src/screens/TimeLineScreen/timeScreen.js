@@ -58,16 +58,16 @@ export const TimeScreen = () => {
     );
 
     return (
-        <SafeAreaView>
-           <View>
+        <SafeAreaView style={{margin: 20}}>
+           <View style={styles.logoContainer}>
                 <Image 
                     style={styles.imageContainer}
                     source={require('../../assets/proUnit.png')} 
                     resizeMode='cover'
-                />
-
-                <
+                /> 
+                <Feather name="mail" size={38} color="black" />
            </View>
+           
             <View>
                 <FlatList 
                     data={filtro} 
@@ -90,6 +90,12 @@ export const TimeScreen = () => {
 }
 
 const styles = StyleSheet.create({
+    logoContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
     imageContainer: {
         width: 100,
         height: 100,
