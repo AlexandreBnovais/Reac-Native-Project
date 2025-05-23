@@ -58,7 +58,7 @@ export const TimeScreen = () => {
     );
 
     return (
-        <SafeAreaView style={{margin: 20}}>
+        <SafeAreaView style={{flex: 1, padding: 25}}>
            <View style={styles.logoContainer}>
                 <Image 
                     style={styles.imageContainer}
@@ -68,7 +68,7 @@ export const TimeScreen = () => {
                 <Feather name="mail" size={38} color="black" />
            </View>
            
-            <View>
+            <View style={styles.viewFiltro}>
                 <FlatList 
                     data={filtro} 
                     renderItem={renderFiltroItem}
@@ -84,7 +84,6 @@ export const TimeScreen = () => {
                 keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}
             />
-            
         </SafeAreaView>
     )
 }
@@ -95,6 +94,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
+    },
+    viewFiltro: {
+        marginVertical: 20,
+        paddingVertical: 10,
     },
     imageContainer: {
         width: 100,

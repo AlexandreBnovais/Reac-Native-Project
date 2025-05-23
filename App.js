@@ -6,7 +6,7 @@ import {
 import * as SplashScreen from 'expo-splash-screen';
 import {useEffect} from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Layout } from './src/layout/layout';
+import { Layout } from './src/layout/stackLayout/layout';
 
 SplashScreen.preventAutoHideAsync();
 
