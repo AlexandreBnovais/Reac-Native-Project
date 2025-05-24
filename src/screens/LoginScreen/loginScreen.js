@@ -34,7 +34,7 @@ export const LoginScreen = () => {
                     secureTextEntry
                 />
 
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TimeScreen')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Tab')}>
                     <Text style={styles.textButton }>Entrar</Text>
                 </TouchableOpacity>
             </View>

@@ -5,6 +5,7 @@ import { HomeScreen } from '../../screens/HomeScreen/homeScreen';
 import { LoginScreen } from '../../screens/LoginScreen/loginScreen';
 import { singUpScreen } from '../../screens/SingUpScreen/singUpScreen';
 import { TimeScreen } from '../../screens/TimeLineScreen/timeScreen';
+import { Tabs } from '../TabLayout/tabs';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +16,7 @@ export const Layout = () => {
             <Stack.Screen name='Home' component={HomeScreen}/>
             <Stack.Screen name='Login' component={LoginScreen} />
             <Stack.Screen name='singUp' component={singUpScreen} />
-            <Stack.Screen name='TimeScreen' component={TimeScreen} />
+            <Stack.Screen name='Tab' component={Tabs} />
         </Stack.Navigator>
     </NavigationContainer>
   )
